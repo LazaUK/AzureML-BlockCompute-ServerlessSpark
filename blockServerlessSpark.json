@@ -1,0 +1,15 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/jobs/jobType",
+                "in": [
+                    "Spark"
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
