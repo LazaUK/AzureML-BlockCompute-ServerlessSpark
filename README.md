@@ -9,7 +9,7 @@ This guide will help you create an Azure Policy definition to block users from u
 
 1. Define the Policy JSON:
 
-Create a new file (e.g., blockServerlessSpark.json) and paste the following JSON code, replacing <location> with your desired resource location:
+Create a new file e.g., (blockServerlessSpark.json)[blockServerlessSpark.json] and paste the following JSON code, replacing <location> with your desired resource location:
 
 ``` JSON
 {
