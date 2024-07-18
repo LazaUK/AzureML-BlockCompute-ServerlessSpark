@@ -13,23 +13,19 @@ Create a new file (e.g., blockServerlessSpark.json) and paste the following JSON
 
 ``` JSON
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-09-01/PolicyDefinition.json",
-  "type": "PolicyDefinition",
-  "name": "BlockServerlessSparkCompute",
-  "properties": {
-    "mode": "IfNotExists",
-    "policyRule": {
-      "if": {
+    "if": {
         "allOf": [
-          { "field": "type", "operator": "Equals", "value": "Microsoft.MachineLearning/workspaces/computes" },
-          { "field": "properties.computeType", "operator": "Equals", "value": "Serverless" }
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/jobs/jobType",
+                "in": [
+                    "Spark"
+                ]
+            }
         ]
-      },
-      "then": {
-        "effect": "Deny"
-      }
+    },
+    "then": {
+        "effect": "deny"
     }
-  }
 }
 ```
 
