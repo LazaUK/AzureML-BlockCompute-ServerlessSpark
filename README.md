@@ -26,7 +26,7 @@ This brief guide will help you create an Azure Policy definition to block users 
 }
 ```
 
-> This policy checks for resources of type "Microsoft.MachineLearningServices/workspaces/jobs" with the property "jobType" set to "Spark". If it finds any (typically at the time of Serverless Spark job submission, it will trigger _**Deny**_ effect.
+> This policy checks for resources of type "Microsoft.MachineLearningServices/workspaces/jobs" with the property "jobType" set to "Spark". If it finds any (typically at the time of Serverless Spark job submission), it will trigger _**Deny**_ effect.
 
 2. Create the Azure Policy definition.
  - You can do it programmatically as described in [Azure Policy documentation](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/programmatically-create). Here's an example of using Azure CLI:
