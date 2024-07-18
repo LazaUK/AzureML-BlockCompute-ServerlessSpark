@@ -3,7 +3,7 @@ This brief guide will help you create an Azure Policy definition to block users 
 
 ### Pre-requisites:
 - An Azure subscription with appropriate permissions to create policies;
-- Familiarity with setup of Azure Policies.
+- Familiarity with setup of Azure Policies programmatically or in Azure portal UI.
 
 ### Configuration Steps:
 
