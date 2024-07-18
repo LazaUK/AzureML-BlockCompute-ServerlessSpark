@@ -29,19 +29,16 @@ This brief guide will help you create an Azure Policy definition to block users 
 > This policy checks for resources of type "Microsoft.MachineLearningServices/workspaces/jobs" with the property "jobType" set to "Spark". If it finds any (typically at the time of Serverless Spark job submission, it will trigger _**Deny**_ effect.
 
 2. Create the Azure Policy definition.
- - You can do it programmatically as described [here](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/programmatically-create). Here's an example of using Azure CLI:
+ - You can do it programmatically as described in [Azure Policy documentation](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/programmatically-create). Here's an example of using Azure CLI:
 ``` Bash
 az policy definition create --name "block-serverless-spark-azureml" --display-name "Block the use of Serverless Spark in Azure ML" --description "This policy blocks the use of Serverless Spark in Azure ML" --rules <PATH TO JSON DEFINITION FILE, e.g. blockServerlessSpark.json> --mode All
 ```
 - Alternatively, you can create new policy definition directly in Azure portal:
 ![Az_Policy_Definition_UI](images/azpolicy_definition.png)
 
-3. Assign the Policy:
+3. As a next step, you assign the policy and define its scope, i.e what to include and evaluate for copliance: You can refer to Microsoft documentation for details on [assigning policies](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure).
 
-To restrict the policy to a specific resource group or subscription, assign it using Azure Policy initiatives. Refer to Microsoft documentation for details on assigning policies: https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure
-
-4. Testing:
-
-Try creating a new compute target with Serverless type in Azure Machine Learning studio. The policy should deny the creation.
+4. To test the effect of newly created policy, try to create a new Serverless Spark job in Azure Machine Learning workspace. The policy should deny the creation as shown on example below:
+![Az_Policy_Effect](images/azpolicy_effect.png)
 
 > Note: This is a basic policy example. You can customize it further based on your needs.
