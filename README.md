@@ -38,7 +38,7 @@ az policy definition create --name "block-serverless-spark-azureml" --display-na
 
 3. Assign the policy and define its scope, i.e. what to include and evaluate for compliance. You can refer to Microsoft documentation for details on [assigning policies](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure).
 
-4. To test the effect of newly created policy, try to create a new Serverless Spark job in Azure Machine Learning workspace. The policy should deny the creation as shown on example below:
+4. To test the effect of newly created policy, try to create a new Serverless Spark job in Azure Machine Learning workspace. The policy should block its creation as shown on example below:
 ![Az_Policy_Effect](images/azpolicy_effect.png)
 
 > Note: This is a basic policy example. You can customise it further based on your needs.
