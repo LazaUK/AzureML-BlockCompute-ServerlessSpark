@@ -1,5 +1,5 @@
 # Block Serverless Spark in Azure Machine Learning with Azure Policy
-This guide will help you create an Azure Policy definition to block users from utilising Serverless Spark compute targets within Azure Machine Learning.
+This brief guide will help you create an Azure Policy definition to block users from utilising Serverless Spark compute targets within Azure Machine Learning.
 
 ### Pre-requisites:
 - An Azure subscription with appropriate permissions to create policies;
@@ -7,9 +7,7 @@ This guide will help you create an Azure Policy definition to block users from u
 
 ### Configuration Steps:
 
-1. Define the Policy JSON:
-
-Create a new file e.g., [blockServerlessSpark.json](blockServerlessSpark.json) and paste the following JSON code, replacing <location> with your desired resource location:
+1. Create Azure Policy definition file by re-using the following JSON code or re-using provided [blockServerlessSpark.json](blockServerlessSpark.json):
 
 ``` JSON
 {
@@ -29,9 +27,7 @@ Create a new file e.g., [blockServerlessSpark.json](blockServerlessSpark.json) a
 }
 ```
 
-This policy checks for resources of type "Microsoft.MachineLearning/workspaces/computes" with the property "computeType" set to "Serverless".
-The "IfNotExists" mode ensures the policy only applies when creating new compute targets, not modifying existing ones.
-Deploy the Policy Definition:
+> This policy checks for resources of type "Microsoft.MachineLearningServices/workspaces/jobs" with the property "jobType" set to "Spark". If it finds any (typically at the time of Serverless Spark job submission, it will trigger _**Deny**_ effect.
 
 2. Create the policy definition.
 
