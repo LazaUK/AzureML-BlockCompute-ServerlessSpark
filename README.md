@@ -41,4 +41,7 @@ az policy definition create --name "block-serverless-spark-azureml" --display-na
 4. To test the effect of newly created policy, try to create a new Serverless Spark job in Azure Machine Learning workspace. The policy should block its creation as shown on example below:
 ![Az_Policy_Effect](images/azpolicy_effect.png)
 
+5. In selected geographies, such Azure policy would also block attempts to launch Serverless Spark sessions from Azure Machine Learning's Jupyter notebooks:
+![Az_Policy_Effect_Notebook](images/azpolicy_notebook.png)
+
 > Note: This is a basic policy example. You can customise it further based on your needs.
